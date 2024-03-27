@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:web="http://xmlns.jcp.org/xml/ns/javaee"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd
+                             http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="5.0">
+    <display-name>HeThongDangKyTinChi</display-name>
+
+    <!-- Welcome file list -->
+    <welcome-file-list>
+        <welcome-file>gdDangnhap.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!-- Session config -->
+    <session-config>
+        <session-timeout>30</session-timeout> <!-- Session timeout in minutes -->
+    </session-config>
+    
+    <!-- Error page -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error404.jsp</location>
+    </error-page>
+
+    <servlet>
+        <servlet-name>GdDangnhapServlet</servlet-name>
+        <jsp-file>/gdDangnhap.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>GdDangnhapServlet</servlet-name>
+        <url-pattern>/gdDangnhap</url-pattern>
+    </servlet-mapping>
+
+	
+	<servlet>
+	    <servlet-name>DoDangnhapServlet</servlet-name>
+	    <jsp-file>/doDangnhap.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>DoDangnhapServlet</servlet-name>
+	    <url-pattern>/doDangnhap</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	    <servlet-name>GdChinhSVServlet</servlet-name>
+	    <jsp-file>/gdChinhSV.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>GdChinhSVServlet</servlet-name>
+	    <url-pattern>/gdChinhSV</url-pattern>
+	</servlet-mapping>
+	
+	<!--
+	<servlet>
+	    <servlet-name>DoluudkServlet</servlet-name>
+	    <jsp-file>/doluudk.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>DoluudkServlet</servlet-name>
+	    <url-pattern>/doluudk</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	    <servlet-name>GdChonLHPServlet</servlet-name>
+	    <jsp-file>/gdChonLHP.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>GdChonLHPServlet</servlet-name>
+	    <url-pattern>/gdChonLHP</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	    <servlet-name>GdChonMHServlet</servlet-name>
+	    <jsp-file>/gdChonMH.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>GdChonMHServlet</servlet-name>
+	    <url-pattern>/gdChonMH</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	    <servlet-name>GdDangkiServlet</servlet-name>
+	    <jsp-file>/gdDangki.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>GdDangkiServlet</servlet-name>
+	    <url-pattern>/gdDangki</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+	    <servlet-name>GdxemlichServlet</servlet-name>
+	    <jsp-file>/gdxemlich.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>GdxemlichServlet</servlet-name>
+	    <url-pattern>/gdxemlich</url-pattern>
+	</servlet-mapping> -->
+	
+</web-app>
