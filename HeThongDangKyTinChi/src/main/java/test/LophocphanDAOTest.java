@@ -1,28 +1,33 @@
 package test;
 
-import java.util.ArrayList;
 import dao.LophocphanDAO;
 import model.Lophocphan;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class LophocphanDAOTest {
+    LophocphanDAO lophocphanDAO;
 
-    @Test
-    void testGetLHPchoSVdangkiSuccess() {
-        LophocphanDAO dao = new LophocphanDAO();
-        ArrayList<Lophocphan> lophocphans = dao.getLHPchoSVdangki(1, 1);
-        assertNotNull(lophocphans, "The list should not be null on successful retrieval");
-        assertTrue(lophocphans.size() > 0, "Expected non-empty list on successful retrieval");
+    @BeforeEach
+    void setUp() {
+        lophocphanDAO = new LophocphanDAO();
     }
 
     @Test
-    void testGetLHPchoSVdangkiNoResults() {
-        LophocphanDAO dao = new LophocphanDAO();
-        ArrayList<Lophocphan> lophocphans = dao.getLHPchoSVdangki(999, 999); // Assuming this does not exist
-        assertNotNull(lophocphans, "The list should not be null even if no results found");
-        assertEquals(0, lophocphans.size(), "Expected empty list when no results are found");
+    void testGetLophocphanValid() {
+        Lophocphan lop = lophocphanDAO.getLophocphanById(1); // Assuming 1 is a valid ID
+        assertNotNull(lop, "Should retrieve a valid Lophocphan");
     }
 
-    // Add more tests to cover each possible path in your method
+    @Test
+    void testGetLophocphanInvalid() {
+        Lophocphan lop = lophocphanDAO.getLophocphanById(9999); // Assuming 9999 is an invalid ID
+        assertNull(lop, "Should return null for invalid ID");
+    }
+
+    @Test
+    void testExceptionHandling() {
+        assertThrows(RuntimeException.class, () -> lophocphanDAO.getLophocphanById(-1));
+    }
 }

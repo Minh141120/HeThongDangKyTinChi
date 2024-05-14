@@ -1,7 +1,9 @@
 package dao;
 
 import java.sql.CallableStatement;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import model.Kihoc;
 import model.Lophocphan;
@@ -59,4 +61,23 @@ public class LophocphanDAO extends DAO {
 		}
 		return kq;
 	}
+	public Lophocphan getLophocphanById(int id) {
+        Lophocphan lophocphan = null;
+        String sql = "SELECT * FROM lophocphan WHERE id = ?";
+        try (PreparedStatement statement = con.prepareStatement(sql)) {
+            statement.setInt(1, id);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                lophocphan = new Lophocphan();
+                lophocphan.setId(resultSet.getInt("id"));
+                lophocphan.setTen(resultSet.getString("ten"));
+                lophocphan.setSisotoida(resultSet.getInt("sisotoida"));
+                lophocphan.setSisothucte(resultSet.getInt("sisothucte"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return lophocphan;
+    }
 }

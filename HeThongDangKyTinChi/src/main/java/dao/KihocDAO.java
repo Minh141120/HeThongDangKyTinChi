@@ -1,7 +1,9 @@
 package dao;
 
 import java.sql.CallableStatement;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import model.Hocki;
 import model.Kihoc;
@@ -47,4 +49,23 @@ public class KihocDAO extends DAO {
 		}
 		return kq;
 	}
+	public Kihoc getKihocById(int id) {
+        Kihoc kihoc = null;
+        String sql = "SELECT id, ten FROM kihoc WHERE id = ?";
+
+        try (PreparedStatement statement = con.prepareStatement(sql)) {
+            statement.setInt(1, id);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                kihoc = new Kihoc();
+                kihoc.setId(resultSet.getInt("id"));
+            }
+        } catch (SQLException e) {
+            System.err.println("Error fetching Kihoc by ID: " + e.getMessage());
+            // Handle exception or log it
+        }
+
+        return kihoc;
+    }
 }
