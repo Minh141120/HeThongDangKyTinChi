@@ -6,6 +6,56 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%@include file="../header.jsp"%>
 <title>Dang ki hoc</title>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f4f9;
+        color: #333;
+        margin: 0;
+        padding: 20px;
+    }
+    h2, h3 {
+        color: #205081;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    table {
+        width: 90%;
+        margin: 10px auto;
+        border-collapse: collapse;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    th {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+    td {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+    button {
+        background-color: #205081;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-right: 5px;
+    }
+    button:hover {
+        background-color: #1d4477;
+    }
+    a {
+        color: #5c67f2;
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+</style>
 </head>
 <%
     // Lay id sinh vien

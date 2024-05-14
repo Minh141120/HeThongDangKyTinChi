@@ -1,9 +1,10 @@
-<!DOCTYPE html>
-<html lang="vi">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="UTF-8">
-<title>Dang Nhap</title>
+<title>Đăng Nhập</title>
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -69,28 +70,28 @@
         <%
         if(request.getParameter("err") != null && request.getParameter("err").equalsIgnoreCase("timeout")){
         %>
-        <h4 class="error-message">Het phien dang nhap. Vui long dang nhap lai</h4>
+        <h4 class="error-message">Hết phiên đăng nhập. Vui lòng đăng nhập lại.</h4>
         <%
         } else if(request.getParameter("err") != null && request.getParameter("err").equalsIgnoreCase("fail")){
         %>
-        <h4 class="error-message">Sai ten dang nhap hoac mat khau.</h4>
+        <h4 class="error-message">Sai tên đăng nhập hoặc mật khẩu.</h4>
         <%
         }
         %>
-        <h2>Dang Nhap</h2>
+        <h2>Đăng Nhập</h2>
         <form name="dangnhap" action="doDangnhap.jsp" method="post">
             <table border="0">
                 <tr>
-                    <td>Ten Dang Nhap:</td>
+                    <td>Tên Đăng Nhập:</td>
                     <td><input type="text" name="username" id="username" required /></td>
                 </tr>
                 <tr>
-                    <td>Mat Khau:</td>
+                    <td>Mật Khẩu:</td>
                     <td><input type="password" name="password" id="password" required /></td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td><input type="submit" value="Dang Nhap" /></td>
+                    <td><input type="submit" value="Đăng Nhập" /></td>
                 </tr>
             </table>
         </form>

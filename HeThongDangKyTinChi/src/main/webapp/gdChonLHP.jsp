@@ -5,6 +5,64 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Chon lop hoc phan</title>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f7f7f7;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color: #333;
+    }
+    .container {
+        background: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        width: auto;
+    }
+    h2, h4 {
+        text-align: center;
+        color: #205081;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+    th, td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: center;
+    }
+    th {
+        background-color: #4CAF50;
+        color: white;
+    }
+    a {
+        color: #5c67f2;
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+    button {
+        background-color: #205081;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        display: block;
+        margin: 10px auto;
+    }
+    button:hover {
+        background-color: #1d4477;
+    }
+</style>
 </head>
 <%
     // Lay id sinh vien
@@ -49,6 +107,7 @@
 %>
 <body>
 	<% if (listLHP != null) { %>
+	<div class="container">
 	<h2>Chọn lớp học phần</h2>
 	<table style="border: 1px solid black; border-collapse: collapse;">
 		<thead>
@@ -87,5 +146,6 @@
 	<br />
 	<button type="button" name="back" onclick="history.back()">Quay
 		lại</button>
+		</div>
 </body>
 </html>

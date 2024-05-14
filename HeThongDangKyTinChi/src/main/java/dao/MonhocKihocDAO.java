@@ -52,4 +52,31 @@ public class MonhocKihocDAO extends DAO {
 		}
 		return kq;
 	}
+	public MonhocKihoc getMonhocKihocById(int idMHKH) {
+        MonhocKihoc mhkh = null;
+        String sql = "{call GetMonhocKihocById(?)}"; // Assuming you have such a stored procedure
+        try (CallableStatement cs = con.prepareCall(sql)) {
+            cs.setInt(1, idMHKH);
+            try (ResultSet rs = cs.executeQuery()) {
+                if (rs.next()) {
+                    mhkh = new MonhocKihoc();
+                    mhkh.setId(rs.getInt("idmhkh"));
+
+                    Monhoc mh = new Monhoc();
+                    mh.setId(rs.getInt("idmh"));
+                    mh.setTen(rs.getString("tenmh"));
+                    mh.setSoTC(rs.getInt("sotc"));
+                    mhkh.setMonhoc(mh);
+
+                    Kihoc kh = new Kihoc();
+                    kh.setId(rs.getInt("idkihoc"));
+                    mhkh.setKihoc(kh);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            mhkh = null;
+        }
+        return mhkh;
+    }
 }
